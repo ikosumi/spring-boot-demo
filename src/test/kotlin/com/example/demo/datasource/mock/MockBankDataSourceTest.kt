@@ -8,14 +8,14 @@ internal class MockBankDataSourceTest {
 
     @Test
     fun `should provide a collection of banks`() {
-        val banks = mockDataSource.getBanks()
+        val banks = mockDataSource.retrieveBanks()
         assertThat(banks).isNotEmpty
         assertThat(banks.size).isGreaterThanOrEqualTo(1)
     }
 
     @Test
     fun `should provide some mock data`() {
-        val banks = mockDataSource.getBanks()
+        val banks = mockDataSource.retrieveBanks()
 
         assertThat(banks).allMatch { it.accountNumber.isNotBlank() }
         assertThat(banks).anyMatch { it.trust != 0.0 }
